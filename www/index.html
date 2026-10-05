@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yoga em 30 Dias</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f1fa;--card:#fff;--tx:#24193f;--mu:#6f6a85;--ac:#e0568a;--sg:#6ea07a;--hd:#2b1b4d;--ln:#e6e0f2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150f26;--card:#221a3a;--tx:#f1ecff;--mu:#a69fc4;--ln:#352b55}}
+:root[data-theme="dark"]{--bg:#150f26;--card:#221a3a;--tx:#f1ecff;--mu:#a69fc4;--ln:#352b55}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;max-width:560px;margin:0 auto}
+h1,h2,h3,.big{font-family:Fraunces,Georgia,serif}
+header{background:linear-gradient(160deg,#2b1b4d,#4b2a73 60%,#3d6b5a);color:#fff;padding:22px 16px 14px;border-radius:0 0 28px 28px}
+header h1{margin:0 0 14px;font-size:30px;line-height:1.05;font-weight:800}
+.tabs{display:flex;gap:4px;background:rgba(255,255,255,.14);border-radius:999px;padding:4px;overflow-x:auto}
+.tabs button{flex:1;border:0;background:none;color:#fff;padding:9px 8px;border-radius:999px;font:600 13px system-ui;white-space:nowrap;cursor:pointer}
+.tabs button.on{background:var(--ac)}
+main{padding:16px 16px 110px}
+h3{margin:18px 0 10px;font-size:19px}
+.day{display:flex;justify-content:space-between;align-items:center;background:var(--card);border-radius:18px;padding:18px;margin-bottom:10px;cursor:pointer;border:1px solid var(--ln)}
+.day small{display:block;color:var(--mu);margin-top:4px}
+.day b{font-size:20px;font-family:Fraunces,Georgia,serif}
+.day.cur{background:var(--ac);color:#fff;border-color:var(--ac)}.day.cur small{color:#ffe3ee}
+.day.ok span{color:var(--sg);font-size:22px;font-weight:700}
+.day span{font-size:22px}
+details{background:var(--card);border:1px solid var(--ln);border-radius:16px;margin-bottom:8px;padding:12px 14px}
+summary{cursor:pointer;font-weight:700}
+details ol{margin:10px 0 0;padding-left:22px;color:var(--mu);font-size:14px;line-height:1.6}
+details em{color:var(--tx);font-style:normal}
+.meta{display:flex;gap:10px;margin:6px 0 14px}
+.meta div{flex:1;background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:12px}
+.meta b{display:block;font-size:18px}.meta small{color:var(--mu)}
+.ex{display:flex;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--ln)}
+.ex i{font-style:normal;font-size:30px;width:50px;height:50px;border-radius:14px;background:var(--card);display:grid;place-items:center;border:1px solid var(--ln)}
+.ex b{display:block}.ex small{color:var(--mu)}.ex em{font-style:normal;color:var(--ac);font-weight:700;margin-top:2px;display:block}
+.fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(76px + env(safe-area-inset-bottom,0px));width:min(520px,calc(100% - 32px));border:0;border-radius:999px;background:var(--ac);color:#fff;font:700 18px system-ui;padding:16px;cursor:pointer;box-shadow:0 8px 20px rgba(224,86,138,.35)}
+.back{background:none;border:0;color:var(--tx);font-size:16px;cursor:pointer;padding:4px 0 10px;font-weight:600}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:560px;display:flex;background:var(--card);border-top:1px solid var(--ln);padding:8px 0 calc(8px + env(safe-area-inset-bottom,0px))}
+nav button{flex:1;border:0;background:none;color:var(--mu);font:600 12px system-ui;display:flex;flex-direction:column;gap:2px;align-items:center;cursor:pointer}
+nav button span{font-size:22px}nav button.on{color:var(--ac)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.st{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:16px}
+.st b{font-size:28px;display:block;font-family:Fraunces,Georgia,serif}.st small{color:var(--mu)}
+.bar{height:10px;border-radius:9px;background:var(--ln);overflow:hidden;margin:6px 0 14px}.bar div{height:100%;background:var(--sg)}
+.wk{display:flex;gap:8px;align-items:flex-end;height:110px;margin:8px 0}
+.wk div{flex:1;text-align:center;font-size:12px;color:var(--mu);display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+.wk i{display:block;background:var(--ac);border-radius:6px 6px 0 0;min-height:3px;margin-bottom:4px}
+.row{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:16px;margin-bottom:10px}
+.btn{border:0;border-radius:12px;padding:10px 14px;background:var(--ac);color:#fff;font:700 14px system-ui;cursor:pointer}
+#pl{position:fixed;inset:0;background:linear-gradient(170deg,#2b1b4d,#3d6b5a);color:#fff;z-index:9;display:none;flex-direction:column;align-items:center;padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(24px + env(safe-area-inset-bottom,0px));text-align:center;overflow:auto}
+#pl.on{display:flex}
+#pl .top{width:100%;max-width:520px;display:flex;justify-content:space-between;align-items:center}
+#pl .top button{background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+#pl .pg{width:100%;max-width:520px;height:6px;border-radius:9px;background:rgba(255,255,255,.2);margin:8px 0 18px;overflow:hidden}#pl .pg div{height:100%;background:var(--ac)}
+.ring{position:relative;width:120px;height:120px;margin:8px auto}
+.ring svg{transform:rotate(-90deg);width:120px;height:120px}.ring .c{position:absolute;inset:0;display:grid;place-items:center;font:800 32px Fraunces,Georgia,serif}
+.em{font-size:76px;margin:8px 0}
+#pl h2{margin:6px 0;font-size:28px}#pl p{max-width:420px;line-height:1.5;opacity:.9;margin:6px 0}
+.ctl{display:flex;gap:18px;margin-top:auto;padding-top:20px}
+.ctl button{width:64px;height:64px;border-radius:50%;border:0;font-size:24px;background:rgba(255,255,255,.18);color:#fff;cursor:pointer}.ctl .go{background:var(--ac);width:76px;height:76px}
+@media (prefers-reduced-motion:no-preference){.day,.btn,.fab{transition:transform .12s}.day:active,.fab:active{transform:scale(.98)}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="pl"></div>
+<script>
+const P={
+mt:['Montanha','Tadasana','Em pé, pés juntos, ombros relaxados, coluna longa e respiração calma.','🧍'],
+fw:['Flexão para frente','Uttanasana','Dobre o quadril, solte cabeça e braços e mantenha os joelhos levemente flexionados.','🙇'],
+cg:['Cachorro olhando para baixo','Adho Mukha Svanasana','Quadril para o alto, calcanhares buscando o chão e coluna alongada.','🐕'],
+gu:['Guerreiro I','Virabhadrasana I','Passo largo, joelho da frente a 90°, braços para cima e quadril voltado para frente.','⚔️'],
+gd:['Guerreiro II','Virabhadrasana II','Braços abertos na altura dos ombros, olhar sobre a mão da frente.','🏹'],
+tr:['Triângulo','Trikonasana','Pernas afastadas, tronco inclinado para o lado e braços em linha vertical.','📐'],
+ar:['Árvore','Vrksasana','Apoie a sola do pé na coxa ou panturrilha e una as mãos no peito.','🌳'],
+cb:['Cobra','Bhujangasana','Deitado de bruços, empurre as mãos e abra o peito, com ombros longe das orelhas.','🐍'],
+cr:['Postura da criança','Balasana','Sente sobre os calcanhares, estenda os braços à frente e relaxe a testa no chão.','🐚'],
+gt:['Gato-Vaca','Marjaryasana','Em quatro apoios, alterne arredondar e arquear a coluna com a respiração.','🐈'],
+pr:['Prancha','Phalakasana','Corpo em linha reta, abdômen firme e ombros sobre os punhos.','🪵'],
+cd:['Cadeira','Utkatasana','Flexione os joelhos como se fosse sentar e erga os braços.','🪑'],
+pt:['Ponte','Setu Bandhasana','Deitado, pés no chão, eleve o quadril e firme os glúteos.','🌉'],
+bo:['Borboleta sentada','Baddha Konasana','Solas dos pés unidas, joelhos abertos e coluna ereta.','🦋'],
+tw:['Torção sentada','Ardha Matsyendrasana','Gire o tronco a partir da coluna, alternando a respiração a cada expiração.','🌀'],
+pm:['Pombo','Eka Pada Rajakapotasana','Abra o quadril com a perna da frente dobrada e a de trás estendida.','🕊️'],
+bt:['Barco','Navasana','Equilibre sobre os ísquios com pernas e tronco formando um V.','⛵'],
+lg:['Avanço baixo','Anjaneyasana','Joelho de trás no chão, quadril à frente e braços para cima.','🌙'],
+gr:['Guirlanda','Malasana','Agachamento profundo, mãos em oração e cotovelos empurrando os joelhos.','🌿'],
+sv:['Relaxamento final','Savasana','Deitado de costas, braços soltos, respiração natural.','😌'],
+pn:['Oração','Pranamasana','Mãos unidas no peito, pés juntos e respiração profunda.','🙏'],
+hu:['Braços para cima','Hasta Uttanasana','Inspire, estenda os braços acima da cabeça e arqueie levemente para trás.','🙆'],
+ha:['Meia elevação','Ardha Uttanasana','Apoie as mãos nas canelas, alongue a coluna e olhe para frente.','🏃'],
+ch:['Chaturanga','Chaturanga Dandasana','Desça do plank com os cotovelos junto às costelas.','💪'],
+fl:['Flexão lateral','Parsva Tadasana','Braços acima, incline o tronco para o lado com o quadril firme.','🌘']};
+const T={cg:25,gu:8,lg:8,gr:8,fl:6,ch:5};
+const base=['fw','cg','cb','gu','bo','pt','tw','lg','gr'];
+const mid=[...base,'gd','tr','cd','pr','ar'];
+const LV={
+ini:{n:'Iniciante',hold:30,k:3.5,b:4,pool:base},
+int:{n:'Intermediário',hold:40,k:4.5,b:5,pool:mid},
+ava:{n:'Avançado',hold:50,k:5.5,b:6,pool:[...mid,'pm','bt']},
+mov:{n:'Movimentos',k:5}};
+const MV={
+sa:['Surya Namaskar A','Saudação ao Sol A: 10 movimentos ligados à respiração.',['pn','hu','fw','ha','ch','cb','cg','ha','fw','hu','pn']],
+sb:['Surya Namaskar B','Saudação ao Sol B, com cadeira e guerreiro I.',['cd','fw','ha','ch','cb','cg','gu','ch','cb','cg','gu','ch','cb','cg','ha','fw','cd','mt']],
+ch:['Chandra Namaskar','Saudação à Lua, sequência calma e lateral.',['pn','hu','fl','fl','fw','lg','gr','lg','fw','hu','pn']]};
+let ST={done:{},snd:true};
+try{Object.assign(ST,JSON.parse(localStorage.getItem('yoga30')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('yoga30',JSON.stringify(ST))}catch(e){}};
+const S={tab:'ini',view:'plan',day:null};
+const mm=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+const ymd=d=>d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+const nm=x=>P[x[0]][0];
+
+function items(t,d){
+  if(t=='mov'){
+    let s=[];
+    if(d<=10)s=[['sa',2+Math.ceil(d/3)]];
+    else if(d<=20)s=[['sb',2+Math.ceil((d-10)/3)]];
+    else if(d<=25)s=[['ch',3+d-21]];
+    else s=[['sa',2+d-25],['sb',2+d-25],['ch',2+d-25]];
+    const o=[['mt',30]];
+    s.forEach(([k,r])=>{for(let i=1;i<=r;i++)MV[k][2].forEach(p=>o.push([p,T[p]||6,MV[k][0]+' · rodada '+i+'/'+r]))});
+    o.push(['sv',60]);return o;
+  }
+  if(d%7==0)return [['gt',60],['cr',60],['bo',90],['tw',60],['pt',60],['sv',90]];
+  const L=LV[t],n=Math.min(L.pool.length,L.b+Math.floor(d/5)),m=[];
+  let i=d*3;while(m.length<n){const p=L.pool[i%L.pool.length];if(!m.includes(p))m.push(p);i++}
+  const h=L.hold+Math.floor(d/10)*5;
+  return [['mt',30],['gt',45],...m.map(p=>[p,h]),['cr',45],['sv',60+Math.floor(d/10)*15]];
+}
+function info(t,d){const it=items(t,d),s=it.reduce((a,x)=>a+x[1],0),m=Math.max(1,Math.round(s/60));return{it,s,m,k:Math.round(m*LV[t].k)}}
+function nextDay(t){for(let d=1;d<=30;d++)if(!ST.done[t+'-'+d])return d;return 0}
+
+function render(){
+  const v=S.view,t=S.tab;let h='';
+  if(S.day)h=detail();
+  else{
+    if(v=='plan'){
+      h='<header><h1>Yoga em<br>30 dias</h1><div class="tabs">'+Object.keys(LV).map(k=>`<button class="${k==t?'on':''}" onclick="tab('${k}')">${LV[k].n}</button>`).join('')+'</div></header><main>'+plan()+'</main>';
+    }else if(v=='rep')h='<header><h1>Relatório</h1></header><main>'+report()+'</main>';
+    else h='<header><h1>Meu</h1></header><main>'+me()+'</main>';
+    h+=`<nav>${[['plan','📋','Plano'],['rep','📊','Relatório'],['me','👤','Meu']].map(a=>`<button class="${v==a[0]?'on':''}" onclick="go('${a[0]}')"><span>${a[1]}</span>${a[2]}</button>`).join('')}</nav>`;
+  }
+  $('#app').innerHTML=h;
+}
+const $=s=>document.querySelector(s);
+function tab(k){S.tab=k;render()}
+function go(v){S.view=v;S.day=null;render();scrollTo(0,0)}
+function plan(){
+  const t=S.tab,nx=nextDay(t);let h='';
+  if(t=='mov')h+='<h3>Biblioteca de movimentos</h3>'+Object.values(MV).map(m=>`<details><summary>${m[0]}</summary><p style="color:var(--mu);font-size:14px;margin:8px 0 0">${m[1]}</p><ol>${m[2].map(p=>`<li><em>${P[p][0]}</em> (${P[p][1]}) — ${P[p][2]}</li>`).join('')}</ol></details>`).join('');
+  h+='<h3>Plano de 30 dias</h3>';
+  for(let d=1;d<=30;d++){const i=info(t,d),dn=ST.done[t+'-'+d];
+    h+=`<div class="day ${d==nx?'cur':''} ${dn?'ok':''}" onclick="openDay(${d})"><div><b>${d}°Dia</b><small>${i.m} min · ${i.k} kcal</small></div><span>${dn?'✓':d==nx?'→':''}</span></div>`}
+  return h;
+}
+function openDay(d){S.day={t:S.tab,d};render();scrollTo(0,0)}
+function detail(){
+  const{t,d}=S.day,i=info(t,d);
+  return `<main style="padding-top:16px"><button class="back" onclick="S.day=null;render()">‹ Voltar</button><h2 style="margin:0">${d}°Dia</h2>
+  <div class="meta"><div><b>${LV[t].n}</b><small>Nível</small></div><div><b>${i.m} min</b><small>Duração</small></div><div><b>${i.k} kcal</b><small>Calorias</small></div></div>
+  <h3 style="margin-top:6px">Exercícios (${i.it.length})</h3>`+
+  i.it.map(x=>`<div class="ex"><i>${P[x[0]][3]}</i><div><b>${nm(x)}</b><small>${x[2]||P[x[0]][1]}</small><em>${mm(x[1])}</em></div></div>`).join('')+
+  `</main><button class="fab" onclick="start()">${ST.done[t+'-'+d]?'REFAZER':'INICIAR'}</button>`;
+}
+/* Player */
+let PL=null,tm=null,AC=null;
+function beep(f,d){if(!ST.snd)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.frequency.value=f;g.gain.value=.08;o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+d)}catch(e){}}
+function start(){const{t,d}=S.day,i=info(t,d);PL={t,d,it:i.it,i:0,left:i.it[0][1],run:true,k:i.k,m:i.m,end:false};$('#pl').classList.add('on');clearInterval(tm);tm=setInterval(tick,1000);beep(660,.2);setPose(true);cancelAnimationFrame(raf);loop();drawPl()}
+function tick(){if(!PL||!PL.run||PL.end)return;PL.left--;if(PL.left<=3&&PL.left>0)beep(520,.08);if(PL.left<=0)step(1);else drawPl()}
+function step(n){
+  const j=PL.i+n;if(j<0)return;
+  if(j>=PL.it.length){finish();return}
+  PL.i=j;PL.left=PL.it[j][1];beep(780,.18);setPose();drawPl();
+}
+function finish(){
+  PL.end=true;clearInterval(tm);
+  ST.done[PL.t+'-'+PL.d]={ts:Date.now(),m:PL.m,k:PL.k,day:ymd(new Date())};save();
+  beep(880,.3);drawPl();
+}
+function close_(){clearInterval(tm);cancelAnimationFrame(raf);PL=null;$('#pl').classList.remove('on');S.day=null;render()}
+function drawPl(){
+  const x=PL.it[PL.i];
+  if(PL.end){$('#pl').innerHTML=`<div class="em">🪷</div><h2>Parabéns!</h2><p>${PL.d}°Dia concluído · ${PL.m} min · ${PL.k} kcal</p><div class="ctl" style="margin-top:30px"><button class="go" style="width:auto;border-radius:999px;padding:0 28px;font:700 18px system-ui" onclick="close_()">Concluir</button></div>`;return}
+  const tot=x[1],C=2*Math.PI*100,off=C*(1-PL.left/tot);
+  const nx=PL.it[PL.i+1];
+  $('#pl').innerHTML=`<div class="top"><button onclick="close_()">✕</button><span>${PL.i+1}/${PL.it.length}</span><span style="width:26px"></span></div>
+  <div class="pg"><div style="width:${(PL.i/PL.it.length)*100}%"></div></div>
+  ${FIGSVG}<h2>${P[x[0]][0]}</h2><small style="opacity:.8">${x[2]||P[x[0]][1]}</small><p>${P[x[0]][2]}</p>
+  <div class="ring"><svg viewBox="0 0 220 220"><circle cx="110" cy="110" r="100" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="10"/><circle cx="110" cy="110" r="100" fill="none" stroke="#e0568a" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${off}"/></svg><div class="c">${mm(PL.left)}</div></div>
+  <small style="opacity:.8">${nx?'A seguir: '+nm(nx):'Último exercício'}</small>
+  <div class="ctl"><button onclick="step(-1)">⏮</button><button class="go" onclick="PL.run=!PL.run;drawPl()">${PL.run?'⏸':'▶'}</button><button onclick="step(1)">⏭</button></div>`;
+  figDraw();
+}
+/* Boneco animado: ângulos absolutos em graus (0=direita, 90=baixo) */
+/* [tronco,cabeça,braçoP sup,antebraço,braçoL sup,antebraço,coxaP,canelaP,coxaL,canelaL] */
+const A={
+mt:[[-90,-90,90,90,95,92,90,90,92,90]],
+fw:[[75,85,50,10,55,15,90,90,92,90]],
+cg:[[36,40,36,36,38,38,120,120,122,122]],
+gu:[[-90,-85,-90,-90,-88,-90,10,90,145,145]],
+gd:[[-90,-10,0,0,180,180,10,90,145,145]],
+tr:[[-5,-30,85,90,-90,-90,60,60,120,120]],
+ar:[[-90,-90,-90,-90,-85,-95,90,90,30,150]],
+cb:[[-50,-60,95,30,100,40,180,180,178,178]],
+cr:[[15,25,5,5,8,8,20,180,22,180]],
+gt:[[-16,-45,90,90,92,90,90,180,92,180],[-28,65,90,90,92,90,90,180,92,180]],
+pr:[[-25,-20,90,90,90,90,155,155,157,157]],
+cd:[[-60,-45,-45,-45,-50,-50,20,100,25,100]],
+pt:[[160,175,0,0,5,5,-30,90,-35,95]],
+bo:[[-90,-90,90,90,92,92,10,190,12,192]],
+tw:[[-90,-80,50,20,105,100,0,0,-50,50]],
+pm:[[-85,-85,75,85,78,88,20,185,172,175]],
+bt:[[-120,-110,0,0,5,5,-45,-45,-40,-45]],
+lg:[[-90,-85,-90,-90,-88,-90,0,90,107,178]],
+gr:[[-80,-80,50,-30,55,-35,-10,125,-8,127]],
+sv:[[180,180,5,5,10,10,0,0,-6,-6]],
+pn:[[-90,-90,80,-50,90,-55,90,90,92,90]],
+hu:[[-95,-100,-100,-100,-95,-98,90,90,92,90]],
+ha:[[0,-10,90,90,92,92,90,90,92,90]],
+ch:[[-14,-20,190,90,195,90,172,172,174,174]],
+fl:[[-75,-70,-60,-60,-65,-65,90,90,92,90]]};
+const FIGSVG='<svg viewBox="0 0 300 250" style="width:100%;max-width:340px;height:230px"><ellipse cx="150" cy="240" rx="115" ry="6" fill="rgba(0,0,0,.25)"/><rect x="25" y="234" width="250" height="7" rx="3.5" fill="#6ea07a"/><g id="fG" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline id="fA2" stroke="#d3a07c" stroke-width="10"/><circle id="fW2" r="6" fill="#d3a07c"/><polyline id="fL2" stroke="#3f2c75" stroke-width="16"/><polyline id="fF2" stroke="#d3a07c" stroke-width="9"/><polyline id="fT" stroke="#ec6a9a" stroke-width="28"/><polyline id="fL1" stroke="#5b3f9e" stroke-width="16"/><polyline id="fF1" stroke="#f1c6a6" stroke-width="9"/><polyline id="fA1" stroke="#f1c6a6" stroke-width="10"/><circle id="fW1" r="6.5" fill="#f1c6a6"/><polyline id="fN" stroke="#f1c6a6" stroke-width="9"/><circle id="fB" r="8" fill="#2b1b4d"/><circle id="fH" r="13" fill="#f1c6a6"/><circle id="fE" r="2" fill="#2b1b4d"/></g></svg>';
+let raf=0;const FG={cur:A.mt[0].slice(),from:A.mt[0].slice(),fr:A.mt,t0:0,tr:1};
+const mix=(a,b,k)=>a+(((b-a+540)%360)-180)*k;
+function setPose(first){const x=PL.it[PL.i];if(first)FG.cur=A.mt[0].slice();FG.from=FG.cur.slice();FG.fr=A[x[0]];FG.t0=performance.now();FG.tr=Math.max(300,Math.min(1500,x[1]*400))}
+function frame(now){
+  const e=now-FG.t0,k=Math.min(1,e/FG.tr),s=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2,fr=FG.fr;let tg=fr[0];
+  if(fr.length>1){const m=(1-Math.cos(e/4000*2*Math.PI))/2;tg=fr[0].map((v,i)=>mix(v,fr[1][i],m))}
+  const br=Math.sin(e/1000*1.6)*1.8;
+  return FG.from.map((a,i)=>mix(a,tg[i],s)+(i==0?br*.5:i>=2&&i<=5?br:0));
+}
+function loop(){raf=requestAnimationFrame(loop);if(!PL||PL.end||!PL.run)return;FG.cur=frame(performance.now());figDraw()}
+function figDraw(){
+  const a=FG.cur,r=Math.PI/180,v=(p,l,d)=>[p[0]+l*Math.cos(d*r),p[1]+l*Math.sin(d*r)];
+  const hp=[0,0],sh=v(hp,60,a[0]),hd=v(sh,25,a[1]),e1=v(sh,34,a[2]),w1=v(e1,32,a[3]),e2=v(sh,34,a[4]),w2=v(e2,32,a[5]),k1=v(hp,44,a[6]),n1=v(k1,42,a[7]),k2=v(hp,44,a[8]),n2=v(k2,42,a[9]),f1=v(n1,17,a[7]-90),f2=v(n2,17,a[9]-90),bn=v(hd,13,a[1]-90),ey=v(hd,6,a[1]+90);
+  let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;
+  [[hp,14],[sh,14],[hd,13],[e1,6],[w1,7],[e2,6],[w2,7],[k1,8],[n1,7],[k2,8],[n2,7],[f1,5],[f2,5]].forEach(([p,q])=>{x0=Math.min(x0,p[0]-q);x1=Math.max(x1,p[0]+q);y0=Math.min(y0,p[1]-q);y1=Math.max(y1,p[1]+q)});
+  const s=Math.min(1,250/(x1-x0),215/(y1-y0)),cx=(x0+x1)/2;
+  const T=p=>(p[0]-cx).toFixed(1)+','+(p[1]-y1).toFixed(1);
+  const g=id=>document.getElementById(id);if(!g('fT'))return;
+  g('fG').setAttribute('transform','translate(150 234) scale('+s.toFixed(3)+')');
+  const pl=(id,q)=>g(id).setAttribute('points',q.map(T).join(' '));
+  const ci=(id,p)=>{const c=T(p).split(',');g(id).setAttribute('cx',c[0]);g(id).setAttribute('cy',c[1])};
+  pl('fA2',[sh,e2,w2]);pl('fL2',[hp,k2,n2]);pl('fF2',[n2,f2]);pl('fT',[hp,sh]);pl('fL1',[hp,k1,n1]);pl('fF1',[n1,f1]);pl('fA1',[sh,e1,w1]);pl('fN',[sh,hd]);
+  ci('fW2',w2);ci('fW1',w1);ci('fB',bn);ci('fH',hd);ci('fE',ey);
+}
+/* Relatório */
+function report(){
+  const e=Object.values(ST.done),min=e.reduce((a,x)=>a+x.m,0),kc=e.reduce((a,x)=>a+x.k,0);
+  const days=new Set(e.map(x=>x.day));let st=0,c=new Date();if(!days.has(ymd(c)))c.setDate(c.getDate()-1);
+  while(days.has(ymd(c))){st++;c.setDate(c.getDate()-1)}
+  const ab=['D','S','T','Q','Q','S','S'];let wk='';
+  for(let i=6;i>=0;i--){const dt=new Date();dt.setDate(dt.getDate()-i);const k=ymd(dt),v=e.filter(x=>x.day==k).reduce((a,x)=>a+x.m,0);
+    wk+=`<div><i style="height:${Math.min(80,v*4)}px"></i>${ab[dt.getDay()]}</div>`}
+  return `<div class="grid"><div class="st"><b>${e.length}</b><small>Treinos</small></div><div class="st"><b>${min}</b><small>Minutos</small></div><div class="st"><b>${kc}</b><small>Calorias (kcal)</small></div><div class="st"><b>${st}</b><small>Dias seguidos</small></div></div>
+  <h3>Últimos 7 dias</h3><div class="wk">${wk}</div>
+  <h3>Progresso nos 30 dias</h3>`+Object.keys(LV).map(k=>{const n=Object.keys(ST.done).filter(x=>x.startsWith(k+'-')).length;return `<div>${LV[k].n} · ${n}/30</div><div class="bar"><div style="width:${n/30*100}%"></div></div>`}).join('');
+}
+function me(){
+  return `<div class="row"><div><b>Sons e avisos</b><br><small style="color:var(--mu)">Beep ao trocar de exercício</small></div><button class="btn" onclick="ST.snd=!ST.snd;save();render()">${ST.snd?'Ligado':'Desligado'}</button></div>
+  <div class="row"><div><b>Reiniciar progresso</b><br><small style="color:var(--mu)">Apaga todos os treinos feitos</small></div><button class="btn" id="rs" onclick="reset()">Apagar</button></div>`;
+}
+let rc=0;function reset(){if(!rc){rc=1;$('#rs').textContent='Confirmar?';setTimeout(()=>{rc=0;const b=$('#rs');if(b)b.textContent='Apagar'},3000);return}ST.done={};save();rc=0;render()}
+render();
+</script>
+</body>
+</html>
